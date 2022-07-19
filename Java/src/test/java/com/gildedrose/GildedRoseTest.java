@@ -1,17 +1,19 @@
 package com.gildedrose;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class GildedRoseTest {
-
     @Test
     void foo() {
-        Item[] items = new Item[] { new Item("foo", 0, 0) };
-        GildedRose app = new GildedRose(items);
-        app.updateQuality();
-        assertEquals("fixme", app.items[0].name);
-    }
+        ByteArrayOutputStream mainOutput = new ByteArrayOutputStream();
+        PrintStream out = new PrintStream(mainOutput);
 
+        TexttestFixture.run(new String[]{"8"}, out);
+
+        assertEquals("",mainOutput);
+    }
 }
